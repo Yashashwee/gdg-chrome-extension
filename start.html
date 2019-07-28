@@ -11,12 +11,32 @@
       rel="stylesheet"
     />
   </head>
+  <style>
+
+.pagination li{
+  display: inline;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: rgb(175, 79, 76);
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+  </style>
   <body>
     <div class="top-header">
       <img src="./img/icon.jpg" alt="" />
       <h2>GDG Calender Tool</h2>
     </div>
-    <p>
+    <img src="img/reload.png" id="reload" alt="reload" width="20" height="20">
+    <p id="dropDown">
       <select class="fstdropdown-select" id="sel1">
         <option value="">Select Country</option>
         <option value="Afghanistan">Afghanistan</option>
@@ -163,39 +183,56 @@
         <option value="Zimbabwe">Zimbabwe</option>
       </select>
     </p>
+    <p id="gdgCount">
+
+    </p>
     <p>
       <select id="sel2" class="select-gdg">
         <option value="">Select GDG</option>
       </select>
     </p>
-    <div class="events-container">
-      <h4>
-        Upcoming Events
-      </h4>
-      <!-- <div class="card" style="height: 200px">
-        <img
-          src="https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/super_cloud.png"
-          alt="Avatar"
-          style="max-height: 50px;"
-        />
-        <div class="container">
-          <h4><b>Cloud Study Jam</b></h4>
-          <div class="rsvp-btn">
-            <p>4 May 2019</p>
-            <button class="button" style="vertical-align:middle">
-              <span>Info</span>
-            </button>
-          </div>
-        </div> -->
-        <div id="fetch-event-upcoming"></div>
-        <h4>
-          Past events
-        </h4>
-        <div id="fetch-event-past"></div>
-      </div>
+      <div class="pagination-container" >
+          <div class="events-container" id="events-container">
+              
+              <!-- <div class="card" style="height: 200px">
+                <img
+                  src="https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/super_cloud.png"
+                  alt="Avatar"
+                  style="max-height: 50px;"
+                />
+                <div class="container">
+                  <h4><b>Cloud Study Jam</b></h4>
+                  <div class="rsvp-btn">
+                    <p>4 May 2019</p>
+                    <button class="button" style="vertical-align:middle">
+                      <span>Info</span>
+                    </button>
+                  </div>
+                </div> -->
+                
+               
+        <div data-page="1" >
+            <h4>
+                Upcoming Events
+              </h4>
+              <div id="fetch-event-upcoming"></div>
+        </div>
+        </div>
+     
+        <div class="text-center">
+        <div class="pagination pagination-centered">
+            <ul class="pagination">
+                 <li data-page="-" ><a href="#" >&lt;Prev</a></li>
+                 <div id="pagination">
+                 <li data-page="1"><a id="currentPage" href="#" ></a></li> <!-- even though this is empty it is essential. Do not delete-->
+                 </div>
+                 <li data-page="+"><a href="#" >next&gt;</a></li>
+           </ul>
+        </div></div></div>
     </div>
     <script src="./js/start.js"></script>
     <script src="./js/jquery.min.js"></script>
+    <script src="./js/pagination.js"></script>
     <script src="./js/fstdropdown.js"></script>
 
     <script>

@@ -15,7 +15,8 @@
         "js/jquery.min.js",
         "js/popup.js",
         "js/start.js",
-        "js/fstdropdown.js"
+        "js/fstdropdown.js",
+        "js/pagination.js"
       ],
       "css": ["css/style.css", "css/fstdropdown.css"],
       "matches": ["http://*/*"]
